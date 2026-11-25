@@ -1,5 +1,6 @@
 ﻿Q3. What happens to the bounding boxes with update + fullRefit?
-
+bounding boxes are updated to match the new position of the circles. Bounding boxes change as circles move even though structure of BVH remains.
 Q4. What happens with reset (rebuild every frame) instead?
-
+Reset rebuilds the BVH using circles' current positions so it can change the tree structure and make the bounds fit better without updating existing boxes.
 Q5. Why are some circles drawn with their sides cut off?
+Some circles are drawn with sides cut off because circles move but the bounding boxes stay at their old positions and not update. So ray tracer may skip parts of circles tht have moved outside of the old bounding boxes (which is the part that look cut off).
